@@ -13,6 +13,10 @@ body,
   background: white;
 }
 
+.navbar-icon > img {
+  margin-right: 1em;
+}
+
 /* main page */
 
 .list-books-title {

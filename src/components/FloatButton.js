@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tippy';
 
-class FloatButton extends React.Component
+class FloatButton extends React.PureComponent
 {
     render()
     {
@@ -18,9 +18,9 @@ class FloatButton extends React.Component
                         inertia
                         position='left-start'
                         touch
-                        delay={[ 100, 40 ]}
+                        delay={[ 200, 60 ]}
                         arrow
-                        theme='light'
+                        theme='transparent'
                     >
                         <Button variant={variant} />
                     </Tooltip>

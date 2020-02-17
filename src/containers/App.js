@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import FloatButton from '../components/FloatButton';
 import AppNavbar from '../components/Navbar';
+import Shelf from '../components/Shelf';
 import '../styles/App.css';
 
 class BooksApp extends React.Component
@@ -16,12 +17,16 @@ class BooksApp extends React.Component
               <AppNavbar />
 
               <Route exact path='/' render={() => (
-                  <FloatButton
-                      to='/search'
-                      variant='success'
-                      tooltip='Add new book'
-                      className='float-button open-search'
-                  />
+                  <div className='list-books-content'>
+                      <Shelf title='Currently Reading' />
+
+                      <FloatButton
+                          to='/search'
+                          variant='success'
+                          tooltip='Add new book'
+                          className='float-button open-search'
+                      />
+                  </div>
               )}
               />
               <Route path='/search' render={() => (

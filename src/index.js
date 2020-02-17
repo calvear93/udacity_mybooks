@@ -1,10 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import 'react-tippy/dist/tippy.css';
 import { register } from 'register-service-worker';
 import App from './containers/App';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-tippy/dist/tippy.css';
 import './styles/index.css';
 
 /**

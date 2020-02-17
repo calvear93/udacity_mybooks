@@ -2,13 +2,13 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../resources/icons/icon.png';
 
-class AppNavbar extends React.Component
+class AppNavbar extends React.PureComponent
 {
     render()
     {
         return (
-            <Navbar bg='primary' variant='dark'>
-                <Navbar.Brand href='/'>
+            <Navbar bg='success' variant='dark'>
+                <Navbar.Brand href='/' className='navbar-icon'>
                     <img
                         alt=''
                         src={Logo}
