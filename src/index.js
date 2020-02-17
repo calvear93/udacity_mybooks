@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { register } from 'register-service-worker';
 import App from './containers/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'tippy.js/dist/tippy.css';
+import 'react-tippy/dist/tippy.css';
 import './styles/index.css';
 
 /**

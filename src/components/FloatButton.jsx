@@ -1,7 +1,7 @@
-import Tippy from '@tippy.js/react';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { Tooltip } from 'react-tippy';
 
 class FloatButton extends React.Component
 {
@@ -11,11 +11,20 @@ class FloatButton extends React.Component
 
         return (
             <Link to={to} >
-                <Tippy content={tooltip}>
-                    <div className={className}>
+                <div className={className}>
+                    <Tooltip
+                        title={tooltip}
+                        animation='perspective'
+                        inertia
+                        position='left-start'
+                        touch
+                        delay={[ 100, 40 ]}
+                        arrow
+                        theme='light'
+                    >
                         <Button variant={variant} />
-                    </div>
-                </Tippy>
+                    </Tooltip>
+                </div>
             </Link>
         );
     }
