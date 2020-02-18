@@ -36,7 +36,7 @@
         ],
         "array-callback-return": "error",
         "arrow-spacing": "warn",
-        "block-scoped-var": "error",
+        "block-scoped-var": "warn",
         "block-spacing": "warn",
         "brace-style": [
             "warn",
@@ -61,7 +61,7 @@
             "warn",
             "last"
         ],
-        "curly": "error",
+        "curly": "warn",
         "default-case": "warn",
         "dot-location": [
             "warn",
@@ -98,7 +98,7 @@
             }
         ],
         "lines-around-comment": [
-            "error",
+            "warn",
             {
                 "beforeBlockComment": true
             }
@@ -116,9 +116,9 @@
             "warn",
             "smart-tabs"
         ],
-        "no-multi-spaces": "error",
+        "no-multi-spaces": "warn",
         "no-multiple-empty-lines": [
-            "error",
+            "warn",
             {
                 "max": 1
             }
@@ -134,7 +134,7 @@
             }
         ],
         "object-curly-spacing": [
-            "error",
+            "warn",
             "always"
         ],
         "padded-blocks": [
@@ -252,7 +252,7 @@
             "always"
         ],
         "valid-jsdoc": [
-            "error",
+            "warn",
             {
                 "requireReturn": false
             }
