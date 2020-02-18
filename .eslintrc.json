@@ -103,6 +103,10 @@
                 "beforeBlockComment": true
             }
         ],
+        "lines-between-class-members": [
+            "warn",
+            "always"
+        ],
         "no-console": "warn",
         "no-duplicate-case": "error",
         "no-empty": "error",
@@ -133,12 +137,26 @@
             "error",
             "always"
         ],
+        "padded-blocks": [
+            "warn",
+            "never"
+        ],
         "padding-line-between-statements": [
             "warn",
             {
                 "blankLine": "always",
                 "next": "return",
                 "prev": "*"
+            },
+            {
+                "blankLine": "always",
+                "next": "class",
+                "prev": "*"
+            },
+            {
+                "blankLine": "never",
+                "next": "import",
+                "prev": "import"
             }
         ],
         "prefer-promise-reject-errors": "warn",
@@ -155,10 +173,24 @@
             "warn",
             "as-needed"
         ],
+        "react/boolean-prop-naming": [
+            "error",
+            {
+                "propTypeNames": [
+                    "bool",
+                    "mutuallyExclusiveTrueProps"
+                ]
+            }
+        ],
         "react/display-name": "error",
         "react/forbid-prop-types": "warn",
         "react/jsx-boolean-value": "warn",
-        "react/jsx-closing-bracket-location": "warn",
+        "react/jsx-child-element-spacing": "off",
+        "react/jsx-closing-bracket-location": [
+            "warn",
+            "tag-aligned"
+        ],
+        "react/jsx-closing-tag-location": "warn",
         "react/jsx-curly-spacing": "warn",
         "react/jsx-indent-props": "warn",
         "react/jsx-max-props-per-line": "off",
@@ -166,6 +198,15 @@
         "react/jsx-no-literals": "off",
         "react/jsx-no-undef": "warn",
         "react/jsx-sort-props": "off",
+        "react/jsx-tag-spacing": [
+            "warn",
+            {
+                "afterOpening": "never",
+                "beforeClosing": "never",
+                "beforeSelfClosing": "always",
+                "closingSlash": "never"
+            }
+        ],
         "react/jsx-uses-react": "warn",
         "react/jsx-uses-vars": "warn",
         "react/jsx-wrap-multilines": "warn",
@@ -175,7 +216,17 @@
         "react/no-direct-mutation-state": "warn",
         "react/no-multi-comp": "warn",
         "react/no-set-state": "off",
+        "react/no-unescaped-entities": [
+            "warn",
+            {
+                "forbid": [
+                    ">",
+                    "}"
+                ]
+            }
+        ],
         "react/no-unknown-property": "warn",
+        "react/no-unused-state": "warn",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
         "react/self-closing-comp": "warn",

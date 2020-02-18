@@ -7,7 +7,7 @@ class FloatButton extends React.PureComponent
 {
     render()
     {
-        let { to, tooltip, className, variant } = this.props;
+        const { to, tooltip, className, variant } = this.props;
 
         return (
             <Link to={to} >
