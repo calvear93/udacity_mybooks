@@ -13,7 +13,6 @@ import * as BooksAPI from '../utils/BooksAPI';
  */
 class Book extends React.PureComponent
 {
-
     /**
      * Updates the current shelf
      * of the book to the API on change.
@@ -70,7 +69,7 @@ class Book extends React.PureComponent
 }
 
 Book.propTypes = {
-    book: PropTypes.element.isRequired,
+    book: PropTypes.objectOf(PropTypes.any),
     onChange: PropTypes.func.isRequired
 };
 

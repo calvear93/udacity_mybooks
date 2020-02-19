@@ -11,7 +11,6 @@ import React from 'react';
  */
 class ShelfBookMenu extends React.PureComponent
 {
-
     /**
      * Handles the shelf selection from menu.
      *
@@ -36,7 +35,7 @@ class ShelfBookMenu extends React.PureComponent
 
         return (
             <div className='book-shelf-changer'>
-                <select onChange={this.onSelfChange} defaultValue='move'>
+                <select onChange={this.onSelfChange} defaultValue={currentShelf}>
                     <option value='move' disabled>Move to...</option>
                     <option value='currentlyReading' disabled={currentShelf === 'currentlyReading'}>Currently Reading</option>
                     <option value='wantToRead' disabled={currentShelf === 'wantToRead'}>Want to Read</option>

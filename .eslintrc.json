@@ -100,6 +100,7 @@
         "lines-around-comment": [
             "warn",
             {
+                "allowBlockStart": true,
                 "beforeBlockComment": true
             }
         ],

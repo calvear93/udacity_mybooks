@@ -15,7 +15,6 @@ import Book from '../components/Book';
  */
 class Shelf extends React.Component
 {
-
     /**
      * Renders the shelf component.
      *
@@ -48,7 +47,7 @@ class Shelf extends React.Component
 }
 
 Shelf.propTypes = {
-    books: PropTypes.arrayOf,
+    books: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)),
     onBookChange: PropTypes.func.isRequired,
     shelf: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired
