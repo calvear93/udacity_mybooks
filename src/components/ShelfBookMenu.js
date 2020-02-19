@@ -17,7 +17,7 @@ class ShelfBookMenu extends React.PureComponent
      * @param {any} event object containing 'select' onChange info.
      * @memberof ShelfBookMenu
      */
-    onSelfChange = (event) =>
+    onShelfChange = (event) =>
     {
         const { onChange } = this.props;
         onChange && onChange(event.target.value);
@@ -35,7 +35,7 @@ class ShelfBookMenu extends React.PureComponent
 
         return (
             <div className='book-shelf-changer'>
-                <select onChange={this.onSelfChange} defaultValue={currentShelf}>
+                <select onChange={this.onShelfChange} defaultValue={currentShelf}>
                     <option value='move' disabled>Move to...</option>
                     <option value='currentlyReading' disabled={currentShelf === 'currentlyReading'}>Currently Reading</option>
                     <option value='wantToRead' disabled={currentShelf === 'wantToRead'}>Want to Read</option>

@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import FloatButton from '../components/FloatButton';
 import AppNavbar from '../components/Navbar';
 import Shelf from '../components/Shelf';
+import Searchbar from '../components/Searchbar';
 import '../styles/App.css';
 import * as BooksAPI from '../utils/BooksAPI';
 
@@ -14,7 +15,6 @@ import * as BooksAPI from '../utils/BooksAPI';
  */
 class BooksApp extends React.Component
 {
-
     /**
      * States for the container.
      *
@@ -55,6 +55,20 @@ class BooksApp extends React.Component
         book.shelf = newShelf;
         books[books.indexOf(book)] = book;
         this.setState({ books });
+    }
+
+    /**
+     * Searches the query by the API and updates datasources..
+     *
+     * @param {string} query Query for search.
+     *
+     * @memberof BooksApp
+     */
+    onSearch = (query) =>
+    {
+        const { books } = this.state;
+
+        console.log(query);
     }
 
     /**
@@ -101,7 +115,14 @@ class BooksApp extends React.Component
                 />
                 <Route path='/search' render={() => (
                     <div>
-                        <i className='mdi mdi-magnify' />
+                        <Searchbar onChange={this.onSearch} />
+
+                        <div className='search-books'>
+
+                            <div className='search-books-results'>
+                                <ol className='books-grid' />
+                            </div>
+                        </div>
 
                         <FloatButton
                             to='/'
