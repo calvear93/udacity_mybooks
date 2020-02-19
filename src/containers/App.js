@@ -71,9 +71,24 @@ class BooksApp extends React.Component
 
                 <Route exact path='/' render={() => (
                     <div className='list-books-content'>
-                        <Shelf shelf='currentlyReading' title='Currently Reading' books={this.state.books} onBookChange={this.onBookChange} />
-                        <Shelf shelf='wantToRead' title='Want To Reading' books={this.state.books} onBookChange={this.onBookChange} />
-                        <Shelf shelf='read' title='Read' books={this.state.books} onBookChange={this.onBookChange} />
+                        <Shelf
+                            shelf='currentlyReading'
+                            title='Currently Reading'
+                            books={this.state.books}
+                            onBookChange={this.onBookChange}
+                        />
+                        <Shelf
+                            shelf='wantToRead'
+                            title='Want To Reading'
+                            books={this.state.books}
+                            onBookChange={this.onBookChange}
+                        />
+                        <Shelf
+                            shelf='read'
+                            title='Read'
+                            books={this.state.books}
+                            onBookChange={this.onBookChange}
+                        />
 
                         <FloatButton
                             to='/search'
