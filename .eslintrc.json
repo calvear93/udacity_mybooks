@@ -173,6 +173,7 @@
             "warn",
             "as-needed"
         ],
+        "react-redux/no-unused-prop-types": "warn",
         "react/boolean-prop-naming": [
             "error",
             {
@@ -226,6 +227,7 @@
             }
         ],
         "react/no-unknown-property": "warn",
+        "react/no-unused-prop-types": "warn",
         "react/no-unused-state": "warn",
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",

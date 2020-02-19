@@ -6,12 +6,29 @@ import Shelf from '../components/Shelf';
 import '../styles/App.css';
 import * as BooksAPI from '../utils/BooksAPI';
 
+/**
+ * Main app container.
+ *
+ * @class BooksApp
+ * @extends {React.Component}
+ */
 class BooksApp extends React.Component
 {
+
+    /**
+     * States for the container.
+     *
+     * @memberof BooksApp
+     */
     state = {
         books: []
     }
 
+    /**
+     * Fills the datasource after component mounting.
+     *
+     * @memberof BooksApp
+     */
     componentDidMount()
     {
         BooksAPI
@@ -22,6 +39,15 @@ class BooksApp extends React.Component
             });
     }
 
+    /**
+     * Updates container state after any book shelf change.
+     *
+     * @param {element} book Book for update.
+     * @param {string} previousShelf Previous book shelf.
+     * @param {string} newShelf New book shelf.
+     *
+     * @memberof BooksApp
+     */
     onBookChange = (book, previousShelf, newShelf) =>
     {
         const { books } = this.state;
@@ -31,6 +57,12 @@ class BooksApp extends React.Component
         this.setState({ books });
     }
 
+    /**
+     * Renders main BookApp container.
+     *
+     * @returns {any} JSX books app.
+     * @memberof BooksApp
+     */
     render()
     {
         return (

@@ -2,8 +2,22 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../resources/icons/icon.png';
 
+/**
+ * Navbar component.
+ * Uses Bootstrap 4 for React.
+ *
+ * @class AppNavbar
+ * @extends {React.PureComponent}
+ */
 class AppNavbar extends React.PureComponent
 {
+
+    /**
+     * Renders the navbar component.
+     *
+     * @returns {any} Navbar JSX.
+     * @memberof AppNavbar
+     */
     render()
     {
         return (

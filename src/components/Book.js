@@ -1,13 +1,31 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ShelfBookMenu from './ShelfBookMenu';
 import * as BooksAPI from '../utils/BooksAPI';
 
+/**
+ * Book component.
+ *
+ * @param {element} book Book JS object.
+ *
+ * @class Book
+ * @extends {React.PureComponent}
+ */
 class Book extends React.PureComponent
 {
+
+    /**
+     * Updates the current shelf
+     * of the book to the API on change.
+     *
+     * @param {string} shelf New shelf for the book..
+     *
+     * @memberof Book
+     */
     onChangeBookShelf = (shelf) =>
     {
         const { book, onChange } = this.props;
-
+        // Updates the book shelf.
         BooksAPI
             .update(book, shelf)
             .then((books) =>
@@ -16,6 +34,12 @@ class Book extends React.PureComponent
             });
     }
 
+    /**
+     * Renders the book component.
+     *
+     * @returns {any} JSX book.
+     * @memberof Book
+     */
     render()
     {
         const { book } = this.props;
@@ -32,5 +56,10 @@ class Book extends React.PureComponent
         );
     }
 }
+
+Book.propTypes = {
+    book: PropTypes.element.isRequired,
+    onChange: PropTypes.func.isRequired
+};
 
 export default Book;
