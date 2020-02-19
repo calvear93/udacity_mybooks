@@ -65,7 +65,7 @@
         "default-case": "warn",
         "dot-location": [
             "warn",
-            "object"
+            "property"
         ],
         "dot-notation": "warn",
         "eqeqeq": "warn",

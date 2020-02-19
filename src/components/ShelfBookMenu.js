@@ -4,21 +4,21 @@ class ShelfBookMenu extends React.PureComponent
 {
     onSelfChange = (event) =>
     {
-        const { bookId, onChange } = this.props;
-        onChange && onChange(bookId, event.target.value);
+        const { onChange } = this.props;
+        onChange && onChange(event.target.value);
     }
 
     render()
     {
-        const { shelf } = this.props;
+        const { shelf: currentShelf } = this.props;
 
         return (
             <div className='book-shelf-changer'>
-                <select onChange={this.onSelfChange}>
+                <select onChange={this.onSelfChange} defaultValue='move'>
                     <option value='move' disabled>Move to...</option>
-                    <option value='currentlyReading' disabled={shelf === 'currentlyReading'}>Currently Reading</option>
-                    <option value='wantToRead' disabled={shelf === 'wantToRead'}>Want to Read</option>
-                    <option value='read' disabled={shelf === 'read'}>Read</option>
+                    <option value='currentlyReading' disabled={currentShelf === 'currentlyReading'}>Currently Reading</option>
+                    <option value='wantToRead' disabled={currentShelf === 'wantToRead'}>Want to Read</option>
+                    <option value='read' disabled={currentShelf === 'read'}>Read</option>
                     <option value='none'>None</option>
                 </select>
             </div>

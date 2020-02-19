@@ -10,13 +10,13 @@ class AppNavbar extends React.PureComponent
             <Navbar bg='success' variant='dark'>
                 <Navbar.Brand href='/' className='navbar-icon'>
                     <img
-                        alt=''
+                        alt='Brand'
                         src={Logo}
                         width='24'
                         height='24'
                         className='d-inline-block align-top'
                     />
-                      Udacity MyReads
+                      Udacity MyReads <small style={{ fontSize: 10 }}>by Cristopher Alvear</small>
                 </Navbar.Brand>
             </Navbar>
         );

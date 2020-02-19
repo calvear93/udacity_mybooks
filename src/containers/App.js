@@ -4,12 +4,33 @@ import FloatButton from '../components/FloatButton';
 import AppNavbar from '../components/Navbar';
 import Shelf from '../components/Shelf';
 import '../styles/App.css';
+import * as BooksAPI from '../utils/BooksAPI';
 
-/**
- * TODO: Adds PropTypes to each component.
- */
 class BooksApp extends React.Component
 {
+    state = {
+        books: []
+    }
+
+    componentDidMount()
+    {
+        BooksAPI
+            .getAll()
+            .then((books) =>
+            {
+                this.setState({ books });
+            });
+    }
+
+    onBookChange = (book, previousShelf, newShelf) =>
+    {
+        const { books } = this.state;
+
+        book.shelf = newShelf;
+        books[books.indexOf(book)] = book;
+        this.setState({ books });
+    }
+
     render()
     {
         return (
@@ -18,7 +39,9 @@ class BooksApp extends React.Component
 
                 <Route exact path='/' render={() => (
                     <div className='list-books-content'>
-                        <Shelf title='Currently Reading' />
+                        <Shelf shelf='currentlyReading' title='Currently Reading' books={this.state.books} onBookChange={this.onBookChange} />
+                        <Shelf shelf='wantToRead' title='Want To Reading' books={this.state.books} onBookChange={this.onBookChange} />
+                        <Shelf shelf='read' title='Read' books={this.state.books} onBookChange={this.onBookChange} />
 
                         <FloatButton
                             to='/search'
