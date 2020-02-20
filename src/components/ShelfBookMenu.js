@@ -31,7 +31,7 @@ class ShelfBookMenu extends React.PureComponent
      */
     render()
     {
-        const { shelf: currentShelf } = this.props;
+        const { shelf: currentShelf = 'none' } = this.props;
 
         return (
             <div className='book-shelf-changer'>
@@ -40,7 +40,7 @@ class ShelfBookMenu extends React.PureComponent
                     <option value='currentlyReading' disabled={currentShelf === 'currentlyReading'}>Currently Reading</option>
                     <option value='wantToRead' disabled={currentShelf === 'wantToRead'}>Want to Read</option>
                     <option value='read' disabled={currentShelf === 'read'}>Read</option>
-                    <option value='none'>None</option>
+                    <option value='none' disabled={currentShelf === 'none'}>None</option>
                 </select>
             </div>
         );
@@ -49,7 +49,7 @@ class ShelfBookMenu extends React.PureComponent
 
 ShelfBookMenu.propTypes = {
     onChange: PropTypes.func.isRequired,
-    shelf: PropTypes.string.isRequired
+    shelf: PropTypes.string
 };
 
 export default ShelfBookMenu;

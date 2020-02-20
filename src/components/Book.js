@@ -7,6 +7,7 @@ import * as BooksAPI from '../utils/BooksAPI';
  * Book component.
  *
  * @param {element} book Book JS object.
+ * @param {func} onChange callback on book shelf change.
  *
  * @class Book
  * @extends {React.PureComponent}
@@ -29,7 +30,7 @@ class Book extends React.PureComponent
             .update(book, shelf)
             .then((books) =>
             {
-                onChange && onChange(book, book.shelf, shelf, books);
+                onChange && onChange(book, book.shelf || 'none', shelf, books);
             });
     }
 

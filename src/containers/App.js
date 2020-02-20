@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import FloatButton from '../components/FloatButton';
+import Library from '../components/Library';
 import AppNavbar from '../components/Navbar';
-import Shelf from '../components/Shelf';
 import Searchbar from '../components/Searchbar';
+import Shelf from '../components/Shelf';
 import '../styles/App.css';
 import * as BooksAPI from '../utils/BooksAPI';
+import 'linqjs';
 
 /**
  * Main app container.
@@ -21,7 +23,8 @@ class BooksApp extends React.Component
      * @memberof BooksApp
      */
     state = {
-        books: []
+        books: [],
+        booksSearched: []
     }
 
     /**
@@ -50,9 +53,42 @@ class BooksApp extends React.Component
      */
     onBookChange = (book, previousShelf, newShelf) =>
     {
+        book.shelf = newShelf;
+
+        if (previousShelf === 'none')
+        {
+            this.addBook(book);
+        }
+        else
+        {
+            this.moveBook(book);
+        }
+    }
+
+    /**
+     * Adds a book from searching
+     * to the shelves array.
+     *
+     * @param {object} book new book.
+     *
+     * @memberof BooksApp
+     */
+    addBook = (book) =>
+    {
+        this.setState((currentState) => ({ books: [ ...currentState.books, book ] }));
+    }
+
+    /**
+     * Moves a book between shelves.
+     *
+     * @param {object} book moved book.
+     *
+     * @memberof BooksApp
+     */
+    moveBook = (book) =>
+    {
         const { books } = this.state;
 
-        book.shelf = newShelf;
         books[books.indexOf(book)] = book;
         this.setState({ books });
     }
@@ -66,9 +102,26 @@ class BooksApp extends React.Component
      */
     onSearch = (query) =>
     {
-        const { books } = this.state;
+        BooksAPI
+            .search(query)
+            .then((response) =>
+            {
+                if (response.error)
+                {
+                    this.setState({ booksSearched: [] });
+                }
+                else
+                {
+                    // Gets shelf from each book in shelves in a dictionary.
+                    const shelves = this.state.books
+                        .toDictionary((b) => b.id, (b) => b.shelf);
+                    // Appends 'shelf' to searched books with matching id.
+                    response
+                        .forEach((b) => b.shelf = shelves[b.id] || 'none');
 
-        console.log(query);
+                    this.setState({ booksSearched: response });
+                }
+            });
     }
 
     /**
@@ -117,12 +170,10 @@ class BooksApp extends React.Component
                     <div>
                         <Searchbar onChange={this.onSearch} />
 
-                        <div className='search-books'>
-
-                            <div className='search-books-results'>
-                                <ol className='books-grid' />
-                            </div>
-                        </div>
+                        <Library
+                            books={this.state.booksSearched}
+                            onBookChange={this.onBookChange}
+                        />
 
                         <FloatButton
                             to='/'

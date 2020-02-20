@@ -27,12 +27,12 @@ class Searchbar extends React.PureComponent
     constructor(props)
     {
         // Default value for delay in ms.
-        const { delay = 600 } = props;
+        const { query = '', delay = 600 } = props;
 
         super(props);
         // Sets up state properties. Initializes 'chronometer'.
         this.state = {
-            value: '',
+            value: query,
             chronometer: new Interval(delay, this.runSearch)
         };
     }
@@ -98,7 +98,8 @@ class Searchbar extends React.PureComponent
 
 Searchbar.propTypes = {
     delay: PropTypes.number,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    query: PropTypes.string
 };
 
 export default Searchbar;
