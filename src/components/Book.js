@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ShelfBookMenu from './ShelfBookMenu';
+import LazyLoad from 'react-lazyload';
 import * as BooksAPI from '../utils/BooksAPI';
+import BookCover from './BookCover';
+import ShelfBookMenu from './ShelfBookMenu';
 
 /**
  * Book component.
@@ -47,14 +49,17 @@ class Book extends React.Component
         return (
             <div className='book'>
                 <div className='book-top'>
-                    <div
-                        className='book-cover'
-                        style={{
-                            width: 128,
-                            height: 193,
-                            backgroundImage: `url("${book.imageLinks.thumbnail}")`
-                        }}
-                    />
+                    <LazyLoad
+                        height={200}
+                        offset={100}
+                        debounce={200}
+                        placeholder={
+                            <BookCover url={'https://www.zumlume.com/assets/frontend/images/default-book.png'} />
+                        }
+                        once
+                    >
+                        <BookCover url={book.imageLinks.thumbnail} />
+                    </LazyLoad>
 
                     <ShelfBookMenu
                         bookId={book.id}

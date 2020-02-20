@@ -22,6 +22,7 @@ To get started deploying the project right away:
 └── src
 │   ├── components # React components.
 │   │   ├── Book.js # A book with it's cover and options.
+│   │   ├── BookCover.js # The book's cover.
 │   │   ├── FloatButton.js # Floating button.
 │   │   ├── Library.js # Global library for searched books.
 │   │   ├── Navbar.js # Application navbar.

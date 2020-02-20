@@ -17,7 +17,6 @@ import { Tooltip } from 'react-tippy';
  */
 class FloatButton extends React.PureComponent
 {
-
     /**
      * Renders a floating button at right bottom corner.
      *
