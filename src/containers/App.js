@@ -114,8 +114,11 @@ class BooksApp extends React.Component
         let book = books
             .first((b) => b.id === bookId);
 
-        // Updates book shelf.
-        book.shelf = shelf;
+        if (book)
+        {
+            // Updates book shelf.
+            book.shelf = shelf;
+        }
     }
 
     /**
