@@ -56,7 +56,7 @@ class BooksApp extends React.Component
     {
         book.shelf = newShelf;
 
-        if (previousShelf === 'none')
+        if (book.fromSearching && previousShelf === 'none')
         {
             this.addBook(book);
         }
@@ -90,8 +90,11 @@ class BooksApp extends React.Component
     {
         const { books } = this.state;
 
-        books[books.indexOf(book)] = book;
-        this.setState({ books });
+        let existing = books
+            .first((b) => b.id === book.id);
+        existing.shelf = book.shelf;
+
+        this.setState({ books: [ ...books ] });
     }
 
     /**
@@ -118,7 +121,11 @@ class BooksApp extends React.Component
                         .toDictionary((b) => b.id, (b) => b.shelf);
                     // Appends 'shelf' to searched books with matching id.
                     response
-                        .forEach((b) => b.shelf = shelves[b.id] || 'none');
+                        .forEach((b) =>
+                        {
+                            b.shelf = shelves[b.id] || 'none';
+                            b.fromSearching = true;
+                        });
 
                     this.setState({ query, booksSearched: response });
                 }

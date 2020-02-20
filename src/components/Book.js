@@ -12,7 +12,7 @@ import * as BooksAPI from '../utils/BooksAPI';
  * @class Book
  * @extends {React.PureComponent}
  */
-class Book extends React.PureComponent
+class Book extends React.Component
 {
     /**
      * Updates the current shelf
