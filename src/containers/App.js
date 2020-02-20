@@ -88,13 +88,34 @@ class BooksApp extends React.Component
      */
     moveBook = (book) =>
     {
-        const { books } = this.state;
+        const { books, booksSearched } = this.state;
 
-        let existing = books
-            .first((b) => b.id === book.id);
-        existing.shelf = book.shelf;
+        this.updateBook(books, book.id, book.shelf);
+        this.updateBook(booksSearched, book.id, book.shelf);
 
-        this.setState({ books: [ ...books ] });
+        this.setState({
+            books: [ ...books ],
+            booksSearched: [ ...booksSearched ]
+        });
+    }
+
+    /**
+     * Updates a book shelf from a collection.
+     *
+     * @param {array} books books collection.
+     * @param {number} bookId book Id.
+     * @param {string} shelf new shelf.
+     *
+     * @memberof BooksApp
+     */
+    updateBook = (books, bookId, shelf) =>
+    {
+        // Search for current book in collection.
+        let book = books
+            .first((b) => b.id === bookId);
+
+        // Updates book shelf.
+        book.shelf = shelf;
     }
 
     /**
