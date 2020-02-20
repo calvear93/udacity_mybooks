@@ -7,7 +7,7 @@ import Searchbar from '../components/Searchbar';
 import Shelf from '../components/Shelf';
 import '../styles/App.css';
 import * as BooksAPI from '../utils/BooksAPI';
-import 'linqjs';
+import 'linqjs'; // https://github.com/joaom182/linqjs
 
 /**
  * Main app container.
@@ -23,6 +23,7 @@ class BooksApp extends React.Component
      * @memberof BooksApp
      */
     state = {
+        query: '',
         books: [],
         booksSearched: []
     }
@@ -108,7 +109,7 @@ class BooksApp extends React.Component
             {
                 if (response.error)
                 {
-                    this.setState({ booksSearched: [] });
+                    this.setState({ query, booksSearched: [] });
                 }
                 else
                 {
@@ -119,7 +120,7 @@ class BooksApp extends React.Component
                     response
                         .forEach((b) => b.shelf = shelves[b.id] || 'none');
 
-                    this.setState({ booksSearched: response });
+                    this.setState({ query, booksSearched: response });
                 }
             });
     }
@@ -168,7 +169,10 @@ class BooksApp extends React.Component
                 />
                 <Route path='/search' render={() => (
                     <div>
-                        <Searchbar onChange={this.onSearch} />
+                        <Searchbar
+                            query={this.state.query}
+                            onChange={this.onSearch}
+                        />
 
                         <Library
                             books={this.state.booksSearched}
