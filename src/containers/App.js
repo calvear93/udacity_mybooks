@@ -94,7 +94,7 @@ class BooksApp extends React.Component
         this.updateBook(booksSearched, book.id, book.shelf);
 
         this.setState({
-            books: [ ...books ],
+            books: [ ...books.where((b) => b.id !== book.id || book.shelf !== 'none') ],
             booksSearched: [ ...booksSearched ]
         });
     }
