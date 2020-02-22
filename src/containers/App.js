@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import FloatButton from '../components/FloatButton';
 import Library from '../components/Library';
 import AppNavbar from '../components/Navbar';
@@ -130,6 +130,14 @@ class BooksApp extends React.Component
      */
     onSearch = (query) =>
     {
+        // Empty query handling.
+        if (query === '')
+        {
+            this.setState({ query });
+
+            return;
+        }
+
         BooksAPI
             .search(query)
             .then((response) =>
@@ -166,59 +174,70 @@ class BooksApp extends React.Component
     {
         return (
             <div className='app'>
-                <Route exact path='/' render={() => (
-                    <div className='list-books-content'>
-                        <AppNavbar />
+                <Switch>
+                    <Route exact path='/' render={() => (
+                        <div className='list-books-content'>
+                            <AppNavbar />
 
-                        <Shelf
-                            shelf='currentlyReading'
-                            title='Currently Reading'
-                            books={this.state.books}
-                            onBookChange={this.onBookChange}
-                        />
-                        <Shelf
-                            shelf='wantToRead'
-                            title='Want To Reading'
-                            books={this.state.books}
-                            onBookChange={this.onBookChange}
-                        />
-                        <Shelf
-                            shelf='read'
-                            title='Read'
-                            books={this.state.books}
-                            onBookChange={this.onBookChange}
-                        />
+                            <Shelf
+                                shelf='currentlyReading'
+                                title='Currently Reading'
+                                books={this.state.books}
+                                onBookChange={this.onBookChange}
+                            />
+                            <Shelf
+                                shelf='wantToRead'
+                                title='Want To Reading'
+                                books={this.state.books}
+                                onBookChange={this.onBookChange}
+                            />
+                            <Shelf
+                                shelf='read'
+                                title='Read'
+                                books={this.state.books}
+                                onBookChange={this.onBookChange}
+                            />
 
-                        <FloatButton
-                            to='/search'
-                            variant='success'
-                            tooltip='Add new book'
-                            className='float-button open-search'
-                        />
-                    </div>
-                )}
-                />
-                <Route path='/search' render={() => (
-                    <div>
-                        <Searchbar
-                            query={this.state.query}
-                            onChange={this.onSearch}
-                        />
+                            <FloatButton
+                                to='/search'
+                                variant='success'
+                                tooltip='Add new book'
+                                className='float-button open-search'
+                            />
+                        </div>
+                    )}
+                    />
 
-                        <Library
-                            books={this.state.booksSearched}
-                            onBookChange={this.onBookChange}
-                        />
+                    <Route exact path='/search' render={() => (
+                        <div>
+                            <Searchbar
+                                query={this.state.query}
+                                onChange={this.onSearch}
+                            />
 
-                        <FloatButton
-                            to='/'
-                            variant='danger'
-                            tooltip='Go back'
-                            className='float-button go-back'
-                        />
-                    </div>
-                )}
-                />
+                            <Library
+                                query={this.state.query}
+                                books={this.state.booksSearched}
+                                onBookChange={this.onBookChange}
+                            />
+
+                            <FloatButton
+                                to='/'
+                                variant='danger'
+                                tooltip='Go back'
+                                className='float-button go-back'
+                            />
+                        </div>
+                    )}
+                    />
+
+                    <Route render={() => (
+                        <div className='not-found-container books-grid'>
+                            <label>Page not found!</label>
+                        </div>
+                    )}
+                    />
+                </Switch>
             </div>
         );
     }

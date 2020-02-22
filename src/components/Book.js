@@ -58,7 +58,7 @@ class Book extends React.Component
                         }
                         once
                     >
-                        <BookCover shelf={book.shelf} url={book.imageLinks.thumbnail} />
+                        <BookCover shelf={book.shelf} url={book.imageLinks && book.imageLinks.thumbnail} />
                     </LazyLoad>
 
                     <ShelfBookMenu

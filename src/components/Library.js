@@ -22,12 +22,12 @@ class Library extends React.Component
      */
     render()
     {
-        const { books, onBookChange } = this.props;
+        const { query, books, onBookChange } = this.props;
 
         return (
             <div className='search-books'>
                 <div className='search-books-results'>
-                    {books.any() && (
+                    {books.any() && query !== '' && (
                         <ol className='books-grid'>
                             {
                                 books
@@ -40,12 +40,10 @@ class Library extends React.Component
                         </ol>
                     )}
 
-                    {!books.any() && (
+                    {!books.any() && query !== '' && (
                         <div className='books-grid'>
-                            <label
-                                className='books-grid-no-results'
-                            >
-                                No results!
+                            <label className='books-grid-no-results'>
+                                <span>No results for <i>{query}</i>!</span>
                             </label>
                         </div>
                     )}

@@ -216,8 +216,8 @@ button:active {
 }
 
 .books-grid-no-results {
-  font-size: 2em;
-  color: #e62a3b;
+  font-size: 1.6em;
+  color: #f75d6a;
 }
 
 .books-grid-no-results::before,
@@ -230,6 +230,11 @@ button:active {
 
 .books-grid-no-results::before {
   content: "\F15A";
+}
+
+.books-grid-no-results > span > i {
+  font-weight: bold;
+  color: #e62a3b;
 }
 
 .book-title::before {
@@ -297,12 +302,12 @@ option:first-child {
 
 .book-cover.wantToRead::before {
   content: "\F86C";
-  background-color: #FEA900;
+  background-color: #fea900;
 }
 
 .book-cover.read::before {
   content: "\FCE0";
-  background-color: #208B4C;
+  background-color: #208b4c;
 }
 
 .book-cover.none::before {
@@ -317,10 +322,24 @@ option:first-child {
 
 .bookshelf-title.wantToRead::before {
   content: "\F86C";
-  color: #FEA900;
+  color: #fea900;
 }
 
 .bookshelf-title.read::before {
   content: "\FCE0";
-  color: #208B4C;
+  color: #208b4c;
+}
+
+.not-found-container {
+  text-align: center;
+  color: red;
+  font-size: 2em;
+  margin-top: 2em;
+}
+
+.not-found-container > label::before {
+  font-family: "Material Design Icons";
+  font-size: 2em;
+  content: "\FDA3\A";
+  white-space: pre;
 }

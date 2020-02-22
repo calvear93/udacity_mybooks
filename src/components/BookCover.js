@@ -19,7 +19,10 @@ class BookCover extends React.PureComponent
      */
     render()
     {
-        const { url, shelf } = this.props;
+        const {
+            url = 'https://www.zumlume.com/assets/frontend/images/default-book.png',
+            shelf
+        } = this.props;
 
         return (
             <div
@@ -36,7 +39,7 @@ class BookCover extends React.PureComponent
 }
 
 BookCover.propTypes = {
-    url: PropTypes.string.isRequired
+    url: PropTypes.string
 };
 
 export default BookCover;
