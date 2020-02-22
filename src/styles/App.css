@@ -105,7 +105,7 @@ body,
 
 .search-books-input-wrapper {
   flex: 1;
-  background: #e9e;
+  background: white;
 }
 
 .search-books-bar input {
@@ -188,7 +188,7 @@ button:active {
   height: 40px;
   border-radius: 50%;
   background: #60ac5d;
-  background-image: url("../resources/icons/arrow-drop-down.svg");
+  /* background-image: url("../resources/icons/arrow-drop-down.svg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
@@ -213,4 +213,114 @@ button:active {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+.books-grid-no-results {
+  font-size: 2em;
+  color: #e62a3b;
+}
+
+.books-grid-no-results::before,
+.book-title::before,
+.book-authors::before {
+  font-family: "Material Design Icons";
+  font-size: 1em;
+  padding-right: 0.4em;
+}
+
+.books-grid-no-results::before {
+  content: "\F15A";
+}
+
+.book-title::before {
+  content: "\F0BA";
+}
+
+.book-authors::before {
+  content: "\F848";
+}
+
+.book-authors {
+  font-size: 0.7em;
+}
+
+option:first-child {
+  font-size: 0.8em;
+}
+
+.book-shelf-changer::before {
+  position: absolute;
+  font-family: "Material Design Icons";
+  top: 9px;
+  left: 12px;
+  content: "\F140";
+  color: white;
+}
+
+.btn-danger {
+  border: none;
+}
+
+.navbar {
+  margin-bottom: 2em;
+  padding: 1.2em 2em .8em 2em;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
+}
+
+.navbar-icon > label {
+  margin-right: .6em;
+}
+
+.book-cover::before {
+  position: absolute;
+  font-family: "Material Design Icons";
+  font-size: .9em;
+  border-radius: 32px;
+  padding: .1em .35em;
+  margin-left: -.5em;
+  margin-top: -.4em;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
+}
+
+.bookshelf-title::before {
+  font-family: "Material Design Icons";
+  font-size: 1em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+.book-cover.currentlyReading::before {
+  content: "\F208";
+  background-color: #17a2b8;
+}
+
+.book-cover.wantToRead::before {
+  content: "\F86C";
+  background-color: #FEA900;
+}
+
+.book-cover.read::before {
+  content: "\FCE0";
+  background-color: #208B4C;
+}
+
+.book-cover.none::before {
+  content: "\F209";
+  background-color: #343a40;
+}
+
+.bookshelf-title.currentlyReading::before {
+  content: "\F208";
+  color: #17a2b8;
+}
+
+.bookshelf-title.wantToRead::before {
+  content: "\F86C";
+  color: #FEA900;
+}
+
+.bookshelf-title.read::before {
+  content: "\FCE0";
+  color: #208B4C;
 }

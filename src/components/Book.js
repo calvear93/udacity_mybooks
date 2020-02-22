@@ -52,13 +52,13 @@ class Book extends React.Component
                     <LazyLoad
                         height={200}
                         offset={100}
-                        debounce={200}
+                        debounce={20}
                         placeholder={
                             <BookCover url={'https://www.zumlume.com/assets/frontend/images/default-book.png'} />
                         }
                         once
                     >
-                        <BookCover url={book.imageLinks.thumbnail} />
+                        <BookCover shelf={book.shelf} url={book.imageLinks.thumbnail} />
                     </LazyLoad>
 
                     <ShelfBookMenu

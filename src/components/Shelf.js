@@ -27,7 +27,9 @@ class Shelf extends React.Component
 
         return (
             <div className='bookshelf'>
-                <h3 className='bookshelf-title'>{title}</h3>
+                <h3 className={`bookshelf-title ${shelf}`}>
+                    {title}
+                </h3>
                 <div className='bookshelf-books'>
                     <ol className='books-grid'>
                         {

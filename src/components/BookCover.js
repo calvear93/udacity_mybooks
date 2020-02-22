@@ -19,11 +19,11 @@ class BookCover extends React.PureComponent
      */
     render()
     {
-        const { url } = this.props;
+        const { url, shelf } = this.props;
 
         return (
             <div
-                className='book-cover'
+                className={`book-cover ${shelf}`}
                 style={{
                     width: 128,
                     height: 193,

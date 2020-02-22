@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Book from '../components/Book';
+import 'linqjs';
 
 /**
  * Library React component.
@@ -26,16 +27,28 @@ class Library extends React.Component
         return (
             <div className='search-books'>
                 <div className='search-books-results'>
-                    <ol className='books-grid'>
-                        {
-                            books
-                                .map((book) => (
-                                    <li key={book.id}>
-                                        <Book book={book} onChange={onBookChange} />
-                                    </li>
-                                ))
-                        }
-                    </ol>
+                    {books.any() && (
+                        <ol className='books-grid'>
+                            {
+                                books
+                                    .map((book) => (
+                                        <li key={book.id}>
+                                            <Book book={book} onChange={onBookChange} />
+                                        </li>
+                                    ))
+                            }
+                        </ol>
+                    )}
+
+                    {!books.any() && (
+                        <div className='books-grid'>
+                            <label
+                                className='books-grid-no-results'
+                            >
+                                No results!
+                            </label>
+                        </div>
+                    )}
                 </div>
             </div>
 

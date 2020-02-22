@@ -11,7 +11,6 @@ import Logo from '../resources/icons/icon.png';
  */
 class AppNavbar extends React.PureComponent
 {
-
     /**
      * Renders the navbar component.
      *
@@ -30,7 +29,8 @@ class AppNavbar extends React.PureComponent
                         height='24'
                         className='d-inline-block align-top'
                     />
-                      Udacity MyReads <small style={{ fontSize: 10 }}>by Cristopher Alvear</small>
+                    <label>Udacity MyReads</label>
+                    <small style={{ fontSize: 10 }}>by Cristopher Alvear</small>
                 </Navbar.Brand>
             </Navbar>
         );

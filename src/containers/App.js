@@ -166,10 +166,10 @@ class BooksApp extends React.Component
     {
         return (
             <div className='app'>
-                <AppNavbar />
-
                 <Route exact path='/' render={() => (
                     <div className='list-books-content'>
+                        <AppNavbar />
+
                         <Shelf
                             shelf='currentlyReading'
                             title='Currently Reading'
